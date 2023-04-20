@@ -1,4 +1,52 @@
-.vscode
-venv
-__pychache__
+# Virtual environment
+venv/
 
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.pytest_cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# Distribution
+dist/
+build/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# Cache and session files
+*.cache
+*.session
+
+# Python environment files
+*.pyenv
+*.venv
+.env
+.pyenv.cfg
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+.pytype/
+
+# Flask
+instance/
+.webassets-cache
