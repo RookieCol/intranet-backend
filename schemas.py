@@ -1,4 +1,5 @@
 import datetime as _dt
+
 import pydantic as _pydantic
 
 
@@ -9,17 +10,14 @@ class _UserBase(_pydantic.BaseModel):
 class UserCreate(_UserBase):
     hashed_password: str
 
-    class config:
+    class Config:
         orm_mode = True
 
 
 class User(_UserBase):
     id: int
-    created_at: _dt.datetime
-    updated_at: _dt.datetime
-    leads: list = []
 
-    class config:
+    class Config:
         orm_mode = True
 
 
@@ -31,15 +29,15 @@ class _LeadBase(_pydantic.BaseModel):
     note: str
 
 
-class LeadCreated(_LeadBase):
+class LeadCreate(_LeadBase):
     pass
 
 
 class Lead(_LeadBase):
     id: int
-    created_at: _dt.datetime
-    last_update: _dt.datetime
     owner_id: int
+    date_created: _dt.datetime
+    date_last_updated: _dt.datetime
 
-    class config:
+    class Config:
         orm_mode = True
