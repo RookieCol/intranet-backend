@@ -33,3 +33,9 @@ async def generate_token(
         raise _fastapi.HTTPException(status_code=401, detail="Invalid Credentials")
 
     return await _services.create_token(user)
+
+@app.get("/api/users/me", response_model=_schemas.User)
+async def get_user(user: _schemas.User = _fastapi.Depends(_services.get_current_user)):
+    return user
+
+
