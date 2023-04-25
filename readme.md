@@ -15,6 +15,7 @@ Este proyecto es una API de ejemplo desarrollada en Python y FastAPI que utiliza
         pip install -r requirements.txt
 
 3. Crear la base de datos
+
 	Una vez en la raiz del proyecto se debe crear la base de datos de desarollo siguiendo los siguentes comandos:
 
         	python3 
