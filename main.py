@@ -3,8 +3,18 @@ import fastapi as _fastapi
 import fastapi.security as _security
 import sqlalchemy.orm as _orm
 import services as _services, schemas as _schemas
+from fastapi.middleware.cors import CORSMiddleware
 
 app = _fastapi.FastAPI()
+
+# add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.post("/api/users")
 async def create_user(
@@ -69,3 +79,8 @@ async def delete_task(
     current_user: _schemas.User = _fastapi.Depends(_services.get_current_user),
 ):
     return await _services.delete_task(task_id, current_user.id, db)
+
+@app.get("/api")
+def root():
+    return {"message": "SOUTA INTRANET"}
+
